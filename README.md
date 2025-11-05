@@ -26,15 +26,17 @@ Registro de asistencia
         device: navigator.userAgent
       };
 
-      fetch('https://script.google.com/macros/s/AKfycbx1234567890abcdefg/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'text/plain' }
-      })
-      .then(() => {
-        document.getElementById("status").innerHTML = "Datos enviados: " + data.time;
-      });
-    }
+      ffetch('https://script.google.com/macros/s/AKfycbx.../exec', {
+  method: 'POST',
+  mode: 'no-cors',  // ← Esto evita errores CORS
+  body: JSON.stringify(data)
+})
+.then(() => {
+  document.getElementById("status").innerHTML = "Datos enviados: " + data.time;
+})
+.catch(() => {
+  document.getElementById("status").innerHTML = "Enviado (puede tardar 5 seg en aparecer)";
+});
 
     function error() {
       document.getElementById("status").innerHTML = "Necesitas permitir la ubicación";
