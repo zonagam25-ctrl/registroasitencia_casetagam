@@ -28,19 +28,14 @@ Registro de asistencia
 
       ffetch('https://script.google.com/macros/s/AKfycbx.../exec', {
   method: 'POST',
-  mode: 'no-cors',  // ← Esto evita errores CORS
+  mode: 'no-cors',
   body: JSON.stringify(data)
-})
 .then(() => {
   document.getElementById("status").innerHTML = "Datos enviados: " + data.time;
-})
 .catch(() => {
   document.getElementById("status").innerHTML = "Enviado (puede tardar 5 seg en aparecer)";
-});
-
     function error() {
       document.getElementById("status").innerHTML = "Necesitas permitir la ubicación";
-    }
   </script>
 </body>
 </html>
